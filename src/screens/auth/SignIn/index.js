@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import {Text} from 'native-base';
+import {View,StyleSheet,TouchableOpacity,Image} from 'react-native';
+import { Container, Text , Content, Form, Item, Input, Label,Button}from 'native-base';
+
+
 import AuthTemplate from "../../auth/authTemplate";
 import Colors from "../../../constants/colors";
-import server from "../../../constants/server"
+import server from "../../../constants/config"
 export default class SignIn extends Component {
     constructor(props){
         super(props);
@@ -29,12 +32,78 @@ export default class SignIn extends Component {
     render() {
         return (
             <AuthTemplate>
-                <Text style={{color: Colors.mainColor}}>SignIn</Text>
-                {
-                  // that is how we add js into code
-                  // plese note when you fetch a lot of data use flatlist
-                }
+               <View style={style.Container}>
+      <Image source={require('./logo.png')} style={style.image}/>
+      
+      
+        
+        <Content style={{backgroundColor: 'white'}}>
+          <Form style ={style.input}>
+            <Item floatingLabel>
+              <Label style={style.label}>اسم المستخدم او البريد الاكتروني</Label>
+              <Input />
+            </Item>
+            <Item floatingLabel last>
+              <Label style={style.label}>كلمة المرور</Label>
+              <Input secureTextEntry={true}/>
+            </Item>
+              <Label style ={style.label2}>مساعدة| نسيت كلمة المرور </Label>
+              <Button large rounded style={style.button}>
+            <Text style={{color:'#d4e4e4'}}>تسجيل الدخول</Text>
+          </Button>
+         <TouchableOpacity style={style.opacity} onPress={()=>this.props.navigation.navigate('SignUp')}>
+           <Text style={{color:'#2fb2c2'}}>تسجيل جديد </Text>
+            </TouchableOpacity>
+            
+          </Form>                             
+        </Content>
+      
+      </View>
+
             </AuthTemplate>
         );
     }
 }
+
+
+
+const style=StyleSheet.create({
+  Container:{
+    flex:1,
+    backgroundColor:'white',
+    padding:20,
+    height:'100%'
+  },
+  
+   input:{
+     marginTop:40,
+     
+   },
+   label:{
+     color:'black'
+   },
+   label2:{
+     alignSelf:'flex-start',
+     paddingBottom:30,
+     
+   },
+   button:{
+     alignSelf: 'center',
+     padding:15,
+     backgroundColor:'#2fb2c2',
+     
+   },
+   opacity:{
+     paddingTop: 15,
+     alignSelf: 'center',
+     fontSize:20,
+   },
+   image:{
+     height:200,
+     width:200,
+     alignSelf: 'center',
+     marginTop:30
+   }
+   
+ 
+ });
