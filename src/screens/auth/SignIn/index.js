@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import {View,StyleSheet,TouchableOpacity,Image} from 'react-native';
+import {View,StyleSheet,TouchableOpacity,Image,I18nManager} from 'react-native';
 import { Container, Text , Content, Form, Item, Input, Label,Button}from 'native-base';
 
+import Text2 from "../../../components/Text2";
 
 import AuthTemplate from "../../auth/authTemplate";
 import Colors from "../../../constants/colors";
 import server from "../../../constants/config"
+import { strings,isRTL } from '../../../i18n';
+
 export default class SignIn extends Component {
     constructor(props){
         super(props);
@@ -31,36 +34,38 @@ export default class SignIn extends Component {
     }
     render() {
         return (
-            <AuthTemplate>
                <View style={style.Container}>
       <Image source={require('./logo.png')} style={style.image}/>
-      
-      
-        
+
+
+
         <Content style={{backgroundColor: 'white'}}>
           <Form style ={style.input}>
             <Item floatingLabel>
-              <Label style={style.label}>اسم المستخدم او البريد الاكتروني</Label>
+              <Label style={style.label}><Text2 text="login.email" style={{color:'#000'}}/></Label>
               <Input />
             </Item>
             <Item floatingLabel last>
-              <Label style={style.label}>كلمة المرور</Label>
+              <Label style={style.label}><Text2 text="login.password" style={{color:'#000'}}/></Label>
               <Input secureTextEntry={true}/>
             </Item>
-              <Label style ={style.label2}>مساعدة| نسيت كلمة المرور </Label>
+              <View style={{flexDirection:'row'}}>
+              <Label style ={style.label2}><Text2 text="login.forget" style={{color:'gray',fontSize:13}}/></Label>
+              <Label style ={style.label2}><Text2 text="login.help" style={{color:'gray',fontSize:13}}/> </Label>
+              </View>
               <Button large rounded style={style.button}>
-            <Text style={{color:'#d4e4e4'}}>تسجيل الدخول</Text>
+
+            <Text2 text="login.login" style={{color:'white',fontSize:17}}/>
           </Button>
          <TouchableOpacity style={style.opacity} onPress={()=>this.props.navigation.navigate('SignUp')}>
-           <Text style={{color:'#2fb2c2'}}>تسجيل جديد </Text>
+          <Text2 text="login.new_email" style={{color:'#2fb2c2',fontSize:17}}/>
             </TouchableOpacity>
-            
-          </Form>                             
+
+          </Form>
         </Content>
-      
+
       </View>
 
-            </AuthTemplate>
         );
     }
 }
@@ -74,24 +79,22 @@ const style=StyleSheet.create({
     padding:20,
     height:'100%'
   },
-  
+
    input:{
      marginTop:40,
-     
+
    },
    label:{
-     color:'black'
+     marginTop:-5,
    },
    label2:{
-     alignSelf:'flex-start',
      paddingBottom:30,
-     
    },
    button:{
      alignSelf: 'center',
      padding:15,
      backgroundColor:'#2fb2c2',
-     
+
    },
    opacity:{
      paddingTop: 15,
@@ -104,6 +107,6 @@ const style=StyleSheet.create({
      alignSelf: 'center',
      marginTop:30
    }
-   
- 
+
+
  });

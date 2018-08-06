@@ -1,5 +1,11 @@
 {
   "login": {
-    "welcome": "Welcome {{name}} to our localized app!"
+    "welcome": "Welcome  to our localized app!",
+    "email":"user name or email",
+    "password":"Password",
+    "forget":" Forget password",
+    "help":"Help |",
+    "login":"Login",
+    "new_email":"New user"
   }
 }
