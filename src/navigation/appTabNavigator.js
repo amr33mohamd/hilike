@@ -19,56 +19,66 @@ const AppTabNavigator = createTabNavigator(
     },
 
     {
-    navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state;
-        let iconName;
-        if (routeName === 'Home') {
-          iconName = `ios-home${focused ? '' : '-outline'}`;
-        } else if (routeName === 'Chat') {
-          iconName = `ios-chatbubbles${focused ? '' : '-outline'}`;
-        }
-        else if (routeName === 'Likes') {
-         iconName = `ios-heart${focused ? '' : '-outline'}`;
-       }
-       else if (routeName === 'Search') {
-        iconName = `ios-search${focused ? '' : '-outline'}`;
-      }
+        navigationOptions: ({ navigation }) => ({
+            tabBarIcon: ({ focused, tintColor }) => {
+                const { routeName } = navigation.state;
+                let iconName;
+                if (routeName === 'Home') {
+                    iconName = `ios-home${focused ? '' : '-outline'}`;
+                } else if (routeName === 'Chat') {
+                    iconName = `ios-chatbubbles${focused ? '' : '-outline'}`;
+                }
+                else if (routeName === 'Likes') {
+                    iconName = `ios-heart${focused ? '' : '-outline'}`;
+                }
+                else if (routeName === 'Search') {
+                    iconName = `ios-search${focused ? '' : '-outline'}`;
+                }
 
-        // You can return any component that you like here! We usually use an
-        // icon component from react-native-vector-icons
-        return <Icon name={iconName} type="Ionicons" size={23} color={tintColor} />;
-      },
-      tabBarLabel: ({focused,tintColor})=>{
-        const { routeName } = navigation.state;
-        switch (routeName) {
-          case 'Home':
-            return <Text2 style={{fontSize:11}} text="navigator.home" />
-            break;
-          case 'Chat':
-            return <Text2 style={{fontSize:11}} text="navigator.chat" />
-            break;
-          case 'Likes':
-              return <Text2 style={{fontSize:11}} text="navigator.likes" />
-            break;
-          case 'Search':
-            return <Text2 style={{fontSize:11}} text="navigator.search" />
-            break;
-          default:
+                // You can return any component that you like here! We usually use an
+                // icon component from react-native-vector-icons
+                return <Icon name={iconName} type="Ionicons" size={23} color={tintColor} />;
+            },
+            tabBarLabel: ({focused,tintColor})=>{
+                const { routeName } = navigation.state;
+                switch (routeName) {
+                    case 'Home':
+                        return <Text2 style={{fontSize:11}} text="navigator.home" />;
+                        break;
+                    case 'Chat':
+                        return <Text2 style={{fontSize:11}} text="navigator.chat" />;
+                        break;
+                    case 'Likes':
+                        return <Text2 style={{fontSize:11}} text="navigator.likes" />;
+                        break;
+                    case 'Search':
+                        return <Text2 style={{fontSize:11}} text="navigator.search" />;
+                        break;
+                    default:
 
-        }
-      }
-    }),
-    tabBarPosition: 'bottom',
-		animationEnabled: false,
-		swipeEnabled: true,
+                }
+            }
+        }),
+        tabBarPosition: 'bottom',
+        animationEnabled: false,
+        swipeEnabled: true,
 
-    tabBarOptions: {
-      activeTintColor: 'black',
-      inactiveTintColor: 'gray',
-    },
+        tabBarOptions: {
+            showIcon: true,
+            activeTintColor: 'black',
+            inactiveTintColor: 'gray',
+            labelStyle: {
+                fontSize: 12,
+            },
+            tabStyle: {
+                width: 100,
+            },
+            style: {
+                backgroundColor: '#ededed',
+            },
+        },
 
-    initialRouteName: 'Home',
+        initialRouteName: 'Home',
     }
 );
 export default AppTabNavigator;
