@@ -59,7 +59,9 @@ const AppTabNavigator = createTabNavigator(
         }
       }
     }),
-swipeEnabled: true,
+    tabBarPosition: 'bottom',
+		animationEnabled: false,
+		swipeEnabled: true,
 
     tabBarOptions: {
       activeTintColor: 'black',

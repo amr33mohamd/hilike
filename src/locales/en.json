@@ -24,5 +24,10 @@
     "chat":"Chat",
     "likes":"Likes",
     "search":"Search"
+  },
+  "test":{
+    "email":"blocked",
+    "name":"sied ali",
+    "time":"45 min"
   }
 }
