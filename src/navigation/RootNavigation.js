@@ -3,18 +3,24 @@ import { Provider } from 'react-redux';
 import {Root} from "native-base";
 import { createStore } from 'redux';
 import { currentUser } from './../reducers';
-import { createSwitchNavigator } from 'react-navigation';
+import { createSwitchNavigator,createStackNavigator } from 'react-navigation';
 import AuthLoadingScreen from './loading'
-import AppStack from './appNavigation'
 import AuthStack from './authNavigation'
+import DrawerNavigator from './DrawerNavigator'
+import Header2 from "../components/Header2";
 
-const RootStack= createSwitchNavigator(
+const RootStack= createStackNavigator(
     {
         AuthLoading: AuthLoadingScreen,
-        App: AppStack,
-        Auth: AuthStack,
+        App:{
+          screen:DrawerNavigator,
+        } ,
+        Auth:{
+          screen:AuthStack,
+        } ,
     },
     {
+      headerMode:'none',
         initialRouteName: 'AuthLoading',
     }
 );

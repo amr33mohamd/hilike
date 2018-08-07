@@ -6,6 +6,23 @@
     "forget":" Forget password",
     "help":"Help |",
     "login":"Login",
-    "new_email":"New user"
+    "new_email":"New user",
+    "get":"accept"
+  },
+  "signup":{
+    "signup":"sign up",
+    "username":"User name",
+    "age":"Age",
+    "country":"Country",
+    "email":"Email",
+    "password":"Password",
+    "male":"Male",
+    "female":"Female"
+  },
+  "navigator":{
+    "home":"Home",
+    "chat":"Chat",
+    "likes":"Likes",
+    "search":"Search"
   }
 }

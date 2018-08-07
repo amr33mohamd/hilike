@@ -4,13 +4,13 @@ import AppTemplate from "../appTemplate";
 import componentExample from "../../../components/componentExample";
 import Colors from "../../../constants/colors";
 
-export default class HomeScreen extends Component {
+export default class SearchScreen extends Component {
     render() {
-      const nav = this.props.navigation
-        return (
-            <AppTemplate navigation={nav} name="navigator.home">
-              <Text style={{color: Colors.mainColor}}>Home</Text>
-          </AppTemplate>
+          const nav = this.props.navigation
+            return (
+            <AppTemplate navigation={nav}>
+                <Text style={{color: Colors.mainColor}}>search</Text>
+            </AppTemplate>
         );
     }
 }

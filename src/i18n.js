@@ -13,7 +13,7 @@ I18n.translations = {
     en,
     ar
 };
-I18n.locale = 'en';
+I18n.locale = 'ar';
 
 export const currentLocale = I18n.currentLocale();
 // Is it a RTL language?

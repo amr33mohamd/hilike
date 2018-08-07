@@ -1,23 +1,31 @@
 import React, { Component } from 'react';
 import {View,StyleSheet,Text} from 'react-native';
-import { Container, Header, Content, Title, Button, Left, Right, Body, Icon, Form, Item, Input,ListItem,Radio,} from 'native-base';
+import { Container,Label, Header, Content, Title, Button, Left, Right, Body, Icon, Form, Item, Input,ListItem,Radio,} from 'native-base';
 import { strings,isRTL } from '../../../i18n';
-
+import Text2 from "../../../components/Text2";
 export default class SignUp extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      itemSelected:1
+    }
+  }
     render() {
       return (
           <Container >
           <Header style= {style.header}>
               <Left>
-                  <Button transparent>
-                      <Icon name='arrow-back' color="white" style={{color:'white'}} />
-                  </Button>
+
               </Left>
               <Body style={style.body}>
-              <Title style={{color:'white'}}>{strings('login.new_email')}</Title>
+              <Title style={{color:'white'}}><Text2 text="login.new_email" style={{color:'white'}}/></Title>
               </Body>
               <Right>
-
+              <Button transparent>
+                  <Icon onPress={()=>{
+                    this.props.navigation.goBack();
+                  }} name='arrow-back' color="white" style={{color:'white'}} />
+              </Button>
               </Right>
           </Header>
 
@@ -28,33 +36,61 @@ export default class SignUp extends Component {
               </View>
 
           <Form>
-            <Item>
-              <Input style={style.inputText} placeholder="اسم المستخدم" />
+          <Item floatingLabel>
+            <Label style={style.label}><Text2 text="signup.username" style={{color:'#000',fontSize:15}}/></Label>
+            <Input />
+          </Item>
+
+            <Item floatingLabel>
+              <Label style={style.label}><Text2 text="signup.age" style={{color:'#000',fontSize:15}}/></Label>
+              <Input />
             </Item>
-            <Item >
-              <Input style={style.inputText} placeholder="العمر" />
+
+            <Item floatingLabel>
+              <Label style={style.label}><Text2 text="signup.country" style={{color:'#000',fontSize:15}}/></Label>
+              <Input />
             </Item>
-            <Item >
-              <Input style={style.inputText} placeholder="البلد" />
+            <Item floatingLabel>
+              <Label style={style.label}><Text2 text="signup.email" style={{color:'#000',fontSize:15}}/></Label>
+              <Input />
             </Item>
-            <Item >
-              <Input style={style.inputText} placeholder="البريد الالكتروني" />
-            </Item>
-            <Item >
-              <Input style={style.inputText} placeholder="كلمة المرور"/>
+            <Item floatingLabel last>
+            <Label style={style.label}><Text2 text="signup.password" style={{color:'#000',fontSize:15}}/></Label>
+            <Input secureTextEntry={true}/>
             </Item>
           </Form>
+          <View style={{flexDirection:'row',width:'100%',padding:10}}>
+          <ListItem style={{width:'100%'}} onPress={() => this.setState({ itemSelected: 1 })}>
+          <Left>
+            <Radio
+            color={"#e21347"}
+            selectedColor={"#e21347"}
 
-           <ListItem style={style.radio}>
-            <Text style={{fontSize:18}} >ذكر</Text>
-              <Radio selected={false} />
+              selected={this.state.itemSelected == 1}
+            />
+          </Left>
+          <Text2 style={{paddingHorizontal:50}} text='signup.male'/>
+          <Right>
 
-            <Text style={{paddingLeft:15,fontSize:18,paddingBottom:12}}>انثى</Text>
-              <Radio selected={true} />
-          </ListItem>
+          </Right>
+        </ListItem>
+        <ListItem style={{width:'100%'}} onPress={() => this.setState({ itemSelected: 2 })}>
+        <Left>
+        <Radio
+        color={"#e21347"}
+        selectedColor={"#e21347"}
+              selected={this.state.itemSelected == 2 }
+            />
+        </Left>
+        <Text2 style={{paddingHorizontal:50}} text='signup.female'/>
+          <Right>
+
+          </Right>
+        </ListItem>
+        </View>
            <View >
           <Button  rounded style={style.button} >
-            <Text style={style.login}>تسجيل</Text>
+            <Text2 style={style.login} text="signup.signup" />
           </Button>
           </View>
               </Content>
@@ -88,6 +124,9 @@ export default class SignUp extends Component {
          borderRadius: 100,
          overflow:'hidden'
       },
+      label:{
+        marginTop:-5,
+      },
       radio:{
         alignSelf:'flex-end',
       },
@@ -96,9 +135,9 @@ export default class SignUp extends Component {
       },
       button:{
         alignSelf: 'center',
-        padding:10,
+        padding:40,
         backgroundColor:'#e21347',
-        width:250
+        marginTop:10
 
       },
       login:{

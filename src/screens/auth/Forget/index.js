@@ -9,7 +9,7 @@ import Colors from "../../../constants/colors";
 import server from "../../../constants/config"
 import { strings,isRTL } from '../../../i18n';
 
-export default class SignIn extends Component {
+export default class Forget extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -45,22 +45,13 @@ export default class SignIn extends Component {
               <Label style={style.label}><Text2 text="login.email" style={{color:'#000',fontSize:15}}/></Label>
               <Input />
             </Item>
-            <Item floatingLabel last>
-              <Label style={style.label}><Text2 text="login.password" style={{color:'#000',fontSize:15}}/></Label>
-              <Input secureTextEntry={true}/>
-            </Item>
-              <View style={{flexDirection:'row'}}>
-              <Label onPress={()=>{
-                this.props.navigation.navigate('Forget')
-              }} style ={style.label2}><Text2 text="login.forget" style={{color:'gray',fontSize:13}}/> </Label>
-              <Label style ={style.label2}><Text2 text="login.help" style={{color:'gray',fontSize:13}}/> </Label>
-              </View>
+
               <Button large rounded style={style.button}>
 
-            <Text2 text="login.login" style={{color:'white',fontSize:17}}/>
+            <Text2 text="login.get" style={{color:'white',fontSize:17}}/>
           </Button>
          <TouchableOpacity style={style.opacity} onPress={()=>this.props.navigation.navigate('SignUp')}>
-          <Text2 text="login.new_email" style={{color:'#2fb2c2',fontSize:17}}/>
+          <Text2 text="signup.signup" style={{color:'#2fb2c2',fontSize:17}}/>
             </TouchableOpacity>
 
           </Form>
@@ -95,6 +86,7 @@ const style=StyleSheet.create({
    button:{
      alignSelf: 'center',
      padding:15,
+     marginTop:15,
      backgroundColor:'#2fb2c2',
 
    },
