@@ -52,7 +52,7 @@ export default class SignIn extends Component {
                             }} style ={style.label2}><Text2 text="login.forget" style={{color:'gray',fontSize:13}}/> </Label>
                             <Label style ={style.label2}><Text2 text="login.help" style={{color:'gray',fontSize:13}}/> </Label>
                         </View>
-                        <Button large rounded style={style.button}>
+                        <Button onPress={()=>this.props.navigation.navigate('App')} large rounded style={style.button}>
 
                             <Text2 text="login.login" style={{color:'white',fontSize:17}}/>
                         </Button>

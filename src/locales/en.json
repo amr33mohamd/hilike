@@ -29,5 +29,19 @@
     "email":"blocked",
     "name":"sied ali",
     "time":"45 min"
+  },
+  "search":{
+    "n_search":"Normal Search",
+    "a_search":"Advanced Search",
+    "w_image":"With Image",
+    "l_seen":"Last Seen",
+    "max":"Maximum",
+    "age":"Age",
+    "country":"Country",
+    "location":"Location",
+    "religious":"Religious",
+    "m_status":"Marital Status",
+    "m_type":"Marige Type",
+    "search":"Serach"
   }
 }

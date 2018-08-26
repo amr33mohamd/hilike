@@ -10,6 +10,11 @@ export default class HomeScreen extends Component {
         return (
             <AppTemplate navigation={nav} name="navigator.likes">
               <BlockBox />
+              <BlockBox />
+              <BlockBox />
+              <BlockBox />
+              <BlockBox />
+
           </AppTemplate>
         );
     }
